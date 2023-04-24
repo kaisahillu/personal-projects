@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import React from 'react';
-import './App.css';
-import { Product } from './product';
-import { ProductCard } from './ProductCard';
-import SearchIcon from './SearchIcon.svg'
-import { FilterBar } from './FilterBar';
+import './styles/App.css';
+import { Product } from './types/product';
+import { ProductCard } from './components/ProductCard';
+import SearchIcon from './images/SearchIcon.svg'
+import { FilterBar } from './components/FilterBar';
 
 function App() {
 
