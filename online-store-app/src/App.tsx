@@ -33,13 +33,16 @@ function App() {
     <div className="app">
 
       <div className='banner'>
-        <h1>Verkkokauppa</h1>
+        <h1>Shopify</h1>
+        <FilterBar />
       </div>
       
       <div className='search'>
-        <input placeholder='Etsi tuotteita...' value={filter} onChange={(ev)=>setFilter(ev.target.value)}/>
+        <input placeholder='Search products...' value={filter} onChange={(ev)=>setFilter(ev.target.value)}/>
         <img src={SearchIcon} alt='search' onClick={() => {}}/>
       </div>
+
+
 
       {products.length >0 ? 
         (<div className='container'>

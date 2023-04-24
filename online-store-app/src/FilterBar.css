@@ -1,11 +1,25 @@
 
-.app .filterbar{
+.filterbar{
+    padding: 1%;
     margin: 1%;
-    width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
    
 }
 
 .filterbar select {
     width: 45%;
+    box-sizing: border-box;
     margin: 10px;
+    padding: 1.5%;
+    font-family: var(--font-roboto);
+    font-size: 1.1rem;
+    letter-spacing: 0.9px;
+}
+
+.filterbar option {
+    font-family: var(--font-roboto);
+    letter-spacing: 0.9px;
+    font-size: 1.2rem;
 }
