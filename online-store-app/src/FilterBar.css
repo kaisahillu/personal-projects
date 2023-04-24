@@ -1,7 +1,11 @@
 
-.filterbar{
-    position: absolute;
-    left: 0;
-    height: 300px;
-    width: 20%;
+.app .filterbar{
+    margin: 1%;
+    width: 100vh;
+   
+}
+
+.filterbar select {
+    width: 45%;
+    margin: 10px;
 }

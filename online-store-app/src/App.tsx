@@ -32,13 +32,14 @@ function App() {
   return (
     <div className="app">
 
+      <div className='banner'>
         <h1>Verkkokauppa</h1>
-
-        <div className='search'>
-          <input placeholder='Etsi tuotteita...' value={filter} onChange={(ev)=>setFilter(ev.target.value)}/>
-          <img src={SearchIcon} alt='search' onClick={() => {}}/>
-        </div>
-    
+      </div>
+      
+      <div className='search'>
+        <input placeholder='Etsi tuotteita...' value={filter} onChange={(ev)=>setFilter(ev.target.value)}/>
+        <img src={SearchIcon} alt='search' onClick={() => {}}/>
+      </div>
 
       {products.length >0 ? 
         (<div className='container'>

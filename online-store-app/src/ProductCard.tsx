@@ -26,7 +26,7 @@ export function ProductCard({product} : ProductCardProps){
     return (
         <div className="productcard">
             <div>
-                <p>{product.price} €</p>
+                <p>Alk. {product.price} €</p>
             </div>
             <div>
                 <img src={product.image}/>
@@ -35,7 +35,6 @@ export function ProductCard({product} : ProductCardProps){
                 <span>{product.category}</span>
                 <h3>{product.title}</h3>
             </div>
-            <p>Hinta</p>
         </div>
     )
 
