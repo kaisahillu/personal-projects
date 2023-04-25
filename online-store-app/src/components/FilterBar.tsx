@@ -3,6 +3,9 @@ import '../styles/FilterBar.css';
 export function FilterBar() {
 
 
+    
+
+
     /*
     <select name='price'>
                 <option value="pricing">All price ranges</option>
@@ -15,16 +18,32 @@ export function FilterBar() {
 
     */
 
+
+  /*esimerkki tuote
+  {
+    "id": 1,
+    "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    "price": 109.95,
+    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "category": "men's clothing",
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "rating": {
+        "rate": 3.9,
+        "count": 120
+    }
+}
+*/
+
     return (
         <div className="filterbar">
             <select name='categories'>
                 <option value="cat">All categories</option>
-                <option value="women">Women's clothing</option>
-                <option value="men">Men's clothing</option>
+                <option value="women's clothing">Women's clothing</option>
+                <option value="men's clothing">Men's clothing</option>
                 <option value="jewelery">Jewelery</option>
                 <option value="electronics">Electronics</option>
             </select>
-            
+
             <input type='number' placeholder='All prices (€)'/>
         </div>
     )
