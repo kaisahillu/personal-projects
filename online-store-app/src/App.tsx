@@ -5,30 +5,56 @@ import { Product } from './types/product';
 import { ProductCard } from './components/ProductCard';
 import SearchIcon from './images/SearchIcon.svg'
 import { FilterBar } from './components/FilterBar';
+import { useSelector } from 'react-redux/es/exports';
+import { setProducts } from './redux/ProductSlice';
+import { useDispatch } from 'react-redux/es/exports';
+import { store } from './redux/ProductStore';
 
 function App() {
 
-  const [products, setProducts]=useState<Product[]>([]);
+  const [localProducts, setLocalProducts]=useState<Product[]>([]);
   const [filter, setFilter]=useState("");
 
-  const searchProducts = async () => {
+  const dispatch = useDispatch();
+
+  /* Tee HTTP kutsu suoraan storeen ja ota sieltä tuotelista
+  const getAll= async () => {
     try{
       await axios.get <Product[]>
-      (`https://fakestoreapi.com/products`).then((response) => {setProducts(response.data)});
-      console.log(products);
+      (`https://fakestoreapi.com/products`).then((response) => {store.dispatch(setProducts(response))});
     } catch (error:any){
       return error;
     }
   }
 
   useEffect(() => {
-    searchProducts();
+    getAll();
+    ??? useSelector<Product []>(state => setLocalProducts(state))
+    console.log(localProducts);
   }, []);
+  */
 
 
-  const filtered = products.filter((p) => p.title.toLowerCase().includes(filter.toLowerCase()));
+  const searchProducts = async () => {
+    try{
+      await axios.get <Product[]>
+      (`https://fakestoreapi.com/products`).then((response) => {setLocalProducts(response.data)});
+      console.log(localProducts);
+    } catch (error:any){
+      return error;
+    }
+  }
+  
+  //lisää kategoria, hinta, tms. muuttujat
+  useEffect(() => {
+    searchProducts();
+    dispatch(setProducts(localProducts));
+  }, []);
+  
+  const filtered = localProducts.filter((p) => p.title.toLowerCase().includes(filter.toLowerCase()));
 
   return (
+
     <div className="app">
 
       <div className='banner'>
@@ -41,9 +67,7 @@ function App() {
         <img src={SearchIcon} alt='search' onClick={() => {}}/>
       </div>
 
-
-
-      {products.length >0 ? 
+      {localProducts.length >0 ? 
         (<div className='container'>
           {filtered.map(p => <ProductCard key={p.id} product={p} />)}
           </div>) :
@@ -54,6 +78,7 @@ function App() {
       }
       
     </div>
+
   );
 }
 
