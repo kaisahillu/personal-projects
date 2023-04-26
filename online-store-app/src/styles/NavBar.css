@@ -1,0 +1,37 @@
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-bar {
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 10vh;
+    padding: 0.5rem 1rem;
+    background-color: #a16ed18f;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.nav-bar h2{
+    float: left;
+    flex:auto;
+    padding: 2%;
+    color: #ffffff;
+    font-weight: lighter;
+    text-transform: uppercase;
+    display: inline;
+    text-align:center;
+}
+
+.nav-bar img {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;   
+}

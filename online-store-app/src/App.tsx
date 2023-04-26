@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux/es/exports';
 import { setProducts } from './redux/ProductSlice';
 import { useDispatch } from 'react-redux/es/exports';
 import { store } from './redux/ProductStore';
+import { NavBar } from './components/NavBar';
 
 function App() {
 
@@ -56,7 +57,8 @@ function App() {
   return (
 
     <div className="app">
-
+      <NavBar/>
+      
       <div className='banner'>
         <h1>Shopify</h1>
         <FilterBar />

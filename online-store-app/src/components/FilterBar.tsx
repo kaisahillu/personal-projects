@@ -2,10 +2,6 @@ import '../styles/FilterBar.css';
 
 export function FilterBar() {
 
-
-    
-
-
     /*
     <select name='price'>
                 <option value="pricing">All price ranges</option>
