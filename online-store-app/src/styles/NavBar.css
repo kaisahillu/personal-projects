@@ -17,6 +17,24 @@
     z-index: 2;
 }
 
+.text-link{
+    text-decoration: none;
+    padding: 1rem;
+    font-size: larger;
+    float: left;
+    flex:auto;
+    color: #ffffff;
+    font-weight: lighter;
+    text-transform: uppercase;
+    display: inline;
+    text-align:center;
+    
+}
+
+.text-link:hover{
+    border-bottom: 3px solid white;
+}
+
 .nav-bar h2{
     float: left;
     flex:auto;
