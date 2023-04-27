@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux/es/exports';
 import { setProducts } from '../redux/ProductSlice';
 import { useDispatch } from 'react-redux/es/exports';
 import { store } from '../redux/ProductStore';
+import { ProductPage } from './ProductPage';
 
 export function MainPage() {
 
@@ -32,6 +33,9 @@ export function MainPage() {
     ??? useSelector<Product []>(state => setLocalProducts(state))
     console.log(localProducts);
   }, []);
+
+
+
   */
 
 

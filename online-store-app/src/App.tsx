@@ -5,6 +5,7 @@ import { MainPage } from './pages/MainPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { QaPage } from './pages/QaPage';
+import { ProductPage } from './pages/ProductPage';
 
 function App(){
 
@@ -16,6 +17,7 @@ function App(){
           <Route path='/about' element={<AboutPage/>}/>
           <Route path='/information' element={<QaPage/>}/>
           <Route path='/contact' element={<ContactPage/>}/>
+          <Route path='/:id' element={<ProductPage/>}/>
         </Routes>
     </div>
   );

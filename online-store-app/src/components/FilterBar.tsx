@@ -1,4 +1,5 @@
 import '../styles/FilterBar.css';
+import { useEffect, useState } from 'react';
 
 export function FilterBar() {
 
@@ -30,9 +31,12 @@ export function FilterBar() {
 }
 */
 
+    const [category, changeCat]= useState("");
+    const [price, changePrice]=useState({});
+
     return (
         <div className="filterbar">
-            <select name='categories'>
+            <select name='categories' onChange={(ev)=> {changeCat(ev.target.value)}}>
                 <option value="cat">All categories</option>
                 <option value="women's clothing">Women's clothing</option>
                 <option value="men's clothing">Men's clothing</option>
@@ -40,7 +44,7 @@ export function FilterBar() {
                 <option value="electronics">Electronics</option>
             </select>
 
-            <input type='number' placeholder='All prices (€)'/>
+            <input type='number' onChange={(ev)=> {changePrice(ev.target.value)}} placeholder='All prices (€)'/>
         </div>
     )
 }

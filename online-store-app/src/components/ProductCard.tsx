@@ -1,5 +1,8 @@
-import { Product } from "../types/product"
+import { Product } from "../types/product";
 import '../styles/ProductCard.css';
+import {useDispatch} from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setSelectedProduct } from "../redux/ProductSlice";
 
 
 interface ProductCardProps {
@@ -8,6 +11,15 @@ interface ProductCardProps {
 
 export function ProductCard({product} : ProductCardProps){
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleProceed = () => {
+        dispatch(setSelectedProduct(product));
+        navigate(`/${product.id}`);
+    };
+
+    
 /*esimerkki tuote
   {
     "id": 1,
@@ -24,7 +36,7 @@ export function ProductCard({product} : ProductCardProps){
 */
 
     return (
-        <div className="productcard">
+        <div className="productcard" onClick={()=> {handleProceed()}}>
             <div>
                 <p>{product.price} €</p>
             </div>

@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.product-page{
+    padding: 4rem;
+    box-sizing: border-box;
+}
+
+.column-one{
+    width: 65%;
+    height: 100vh;
+    float: left;
+    box-sizing: border-box;
+    padding-right: 5rem;
+}
+
+.column-one h1{
+  font-size: 3rem;
+  font-weight: lighter;
+  color: #797a77;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.column-one h2 {
+    font-weight: lighter;
+    color: #797a77;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.column-one p {
+    font-weight: lighter;
+    font-size: 1.5rem;
+}
+
+.column-two{
+    width:35%;
+    height: 100vh;
+    box-sizing: border-box;
+    float: right;
+}
+
+.column-two img {
+    width: 100%;
+}

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "../types/product";
+import { RootState } from "./ProductStore";
 
 
 export const productSlice=createSlice({
@@ -7,7 +8,8 @@ export const productSlice=createSlice({
     initialState:{
         products: [] as Product[],
         selectedCategory: {} as string,
-        selectedPrice: {} as number | null
+        selectedPrice: {} as number | null,
+        selectedProduct: {} as Product
     },
 
     reducers:{
@@ -23,6 +25,10 @@ export const productSlice=createSlice({
             state.selectedPrice = action.payload;
             console.log("Selected price: ", action.payload);
         },
+        setSelectedProduct: (state, action) => {
+            state.selectedProduct=action.payload;
+            console.log("Selected product: ", action.payload);
+        }
     }
 
 });
@@ -30,7 +36,10 @@ export const productSlice=createSlice({
 export const {
     setProducts: setProducts,
     setSelectedCategory: setSelectedCategory,
-    setSelectedPrice: setSelectedPrice
+    setSelectedPrice: setSelectedPrice,
+    setSelectedProduct: setSelectedProduct,
 } = productSlice.actions;
 
 export default productSlice.reducer;
+
+export const selectSelectedProduct= (state: RootState) => state.productReducer.selectedProduct;
