@@ -6,38 +6,19 @@ import { ProductCard } from '../components/ProductCard';
 import SearchIcon from '../images/SearchIcon.svg'
 import { FilterBar } from '../components/FilterBar';
 import { useSelector } from 'react-redux/es/exports';
-import { setProducts } from '../redux/ProductSlice';
+import { selectSelectedCat, selectSelectedPrice, setProducts } from '../redux/ProductSlice';
 import { useDispatch } from 'react-redux/es/exports';
 import { store } from '../redux/ProductStore';
 import { ProductPage } from './ProductPage';
 
 export function MainPage() {
 
-  const [localProducts, setLocalProducts]=useState<Product[]>([]);
-  const [filter, setFilter]=useState("");
-
   const dispatch = useDispatch();
 
-  /* Tee HTTP kutsu suoraan storeen ja ota sieltä tuotelista
-  const getAll= async () => {
-    try{
-      await axios.get <Product[]>
-      (`https://fakestoreapi.com/products`).then((response) => {store.dispatch(setProducts(response))});
-    } catch (error:any){
-      return error;
-    }
-  }
-
-  useEffect(() => {
-    getAll();
-    ??? useSelector<Product []>(state => setLocalProducts(state))
-    console.log(localProducts);
-  }, []);
-
-
-
-  */
-
+  const [localProducts, setLocalProducts]=useState<Product[]>([]);
+  const [filter, setFilter]=useState("");
+  let category=useSelector(selectSelectedCat);
+  let price=useSelector(selectSelectedPrice); 
 
   const searchProducts = async () => {
     try{
@@ -49,18 +30,26 @@ export function MainPage() {
     }
   }
   
-  //lisää kategoria, hinta, tms. muuttujat
   useEffect(() => {
     searchProducts();
     dispatch(setProducts(localProducts));
   }, []);
-  
-  const filtered = localProducts.filter((p) => p.title.toLowerCase().includes(filter.toLowerCase()));
 
+  
+  let filtered = localProducts.filter((p) => p.title.toLowerCase().includes(filter.toLowerCase()));
+
+  //muokkaa niin että toimii ristiin eri hakujen (sana, hinta) kanssa, defaulttina all
+  //tee apufunktio test filters
+  
+  if (category === "all cats"){
+    filtered=filtered;
+  } else {
+    filtered=filtered.filter((p) => p.category === category);
+  }
+  
   return (
 
     <>
-      
       <div className='banner'>
         <h1>Shopify</h1>
         <FilterBar />
@@ -77,7 +66,7 @@ export function MainPage() {
           </div>) :
         
         (<div className='empty'>
-          <h2>Tuotteita ei löytynyt</h2>
+          <h2>Couldn't find products...</h2>
         </div>)
       }
       

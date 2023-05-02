@@ -8,7 +8,7 @@ export const productSlice=createSlice({
     initialState:{
         products: [] as Product[],
         selectedCategory: {} as string,
-        selectedPrice: {} as number | null,
+        selectedPrice: {} as number,
         selectedProduct: {} as Product
     },
 
@@ -43,3 +43,5 @@ export const {
 export default productSlice.reducer;
 
 export const selectSelectedProduct= (state: RootState) => state.productReducer.selectedProduct;
+export const selectSelectedCat= (state: RootState) => state.productReducer.selectedCategory;
+export const selectSelectedPrice= (state: RootState) => state.productReducer.selectedPrice;
